@@ -8,12 +8,12 @@ window:
 
   dynamic_padding: false
   decorations: buttonless
-  opacity: 0.7
-  # When true, bold text is drawn using the bright variant of colors.
+  opacity: 0.6
 tabspaces: 4
 draw_bold_text_with_bright_colors: true
 
-# Font configuration (changes require restart)
+theme: Tokyonight_Storm
+
 font:
   normal:
     family: IosevkaTermSlab Nerd Font Mono
@@ -29,39 +29,6 @@ font:
 
   size: 14
 
-colors:
-  # Default colors
-  primary:
-    background: "#1E1E3F"
-    foreground: "#FFFFFF"
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: "#1E1E3F"
-    cursor: "#FAD000"
-
-  # Normal colors
-  normal:
-    black: "#000000"
-    red: "#D52822"
-    green: "#3DB72A"
-    yellow: "#FAD000"
-    blue: "#6943FF"
-    magenta: "#FF628C"
-    cyan: "#9EFFFF"
-    white: "#DBDBE0"
-
-  # Bright colors
-  bright:
-    black: "#5C5C61"
-    red: "#FF000D"
-    green: "#3AD900"
-    yellow: "#FAD000"
-    blue: "#6943FF"
-    magenta: "#FF628C"
-    cyan: "#9EFFFF"
-    white: "#FFFFFF"
-
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
@@ -76,24 +43,83 @@ key_bindings:
   - { key: N, mods: Command, action: SpawnNewInstance }
   - { key: Back, mods: Control, chars: "\x17" }
   # Vi Mode
-  - { key: Space, mods: Shift|Control, mode: ~Search, action: ToggleViMode }
+  - {
+      key: Space,
+      mods: Shift|Control,
+      mode: ~Search,
+      action: ToggleViMode
+    }
   - { key: Escape, mode: Vi|~Search, action: ClearSelection }
   - { key: I, mode: Vi|~Search, action: ToggleViMode }
-  - { key: Y, mods: Control, mode: Vi|~Search, action: ScrollLineUp }
-  - { key: E, mods: Control, mode: Vi|~Search, action: ScrollLineDown }
+  - {
+      key: Y,
+      mods: Control,
+      mode: Vi|~Search,
+      action: ScrollLineUp
+    }
+  - {
+      key: E,
+      mods: Control,
+      mode: Vi|~Search,
+      action: ScrollLineDown
+    }
   - { key: G, mode: Vi|~Search, action: ScrollToTop }
-  - { key: G, mods: Shift, mode: Vi|~Search, action: ScrollToBottom }
-  - { key: B, mods: Control, mode: Vi|~Search, action: ScrollPageUp }
-  - { key: F, mods: Control, mode: Vi|~Search, action: ScrollPageDown }
-  - { key: U, mods: Control, mode: Vi|~Search, action: ScrollHalfPageUp }
-  - { key: D, mods: Control, mode: Vi|~Search, action: ScrollHalfPageDown }
+  - {
+      key: G,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: ScrollToBottom
+    }
+  - {
+      key: B,
+      mods: Control,
+      mode: Vi|~Search,
+      action: ScrollPageUp
+    }
+  - {
+      key: F,
+      mods: Control,
+      mode: Vi|~Search,
+      action: ScrollPageDown
+    }
+  - {
+      key: U,
+      mods: Control,
+      mode: Vi|~Search,
+      action: ScrollHalfPageUp
+    }
+  - {
+      key: D,
+      mods: Control,
+      mode: Vi|~Search,
+      action: ScrollHalfPageDown
+    }
   - { key: Y, mode: Vi|~Search, action: Copy }
   - { key: Y, mode: Vi|~Search, action: ClearSelection }
   - { key: Copy, mode: Vi|~Search, action: ClearSelection }
-  - { key: V, mode: Vi|~Search, action: ToggleNormalSelection }
-  - { key: V, mods: Shift, mode: Vi|~Search, action: ToggleLineSelection }
-  - { key: V, mods: Control, mode: Vi|~Search, action: ToggleBlockSelection }
-  - { key: V, mods: Alt, mode: Vi|~Search, action: ToggleSemanticSelection }
+  - {
+      key: V,
+      mode: Vi|~Search,
+      action: ToggleNormalSelection
+    }
+  - {
+      key: V,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: ToggleLineSelection
+    }
+  - {
+      key: V,
+      mods: Control,
+      mode: Vi|~Search,
+      action: ToggleBlockSelection
+    }
+  - {
+      key: V,
+      mods: Alt,
+      mode: Vi|~Search,
+      action: ToggleSemanticSelection
+    }
   - { key: Return, mode: Vi|~Search, action: Open }
   - { key: Z, mode: Vi|~Search, action: CenterAroundViCursor }
   - { key: K, mode: Vi|~Search, action: Up }
@@ -105,20 +131,92 @@ key_bindings:
   - { key: Left, mode: Vi|~Search, action: Left }
   - { key: Right, mode: Vi|~Search, action: Right }
   - { key: Key0, mode: Vi|~Search, action: First }
-  - { key: Key4, mods: Shift, mode: Vi|~Search, action: Last }
-  - { key: Key6, mods: Shift, mode: Vi|~Search, action: FirstOccupied }
+  - {
+      key: Key4,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: Last
+    }
+  - {
+      key: Key6,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: FirstOccupied
+    }
   - { key: H, mods: Shift, mode: Vi|~Search, action: High }
   - { key: M, mods: Shift, mode: Vi|~Search, action: Middle }
   - { key: L, mods: Shift, mode: Vi|~Search, action: Low }
   - { key: B, mode: Vi|~Search, action: SemanticLeft }
   - { key: W, mode: Vi|~Search, action: SemanticRight }
   - { key: E, mode: Vi|~Search, action: SemanticRightEnd }
-  - { key: B, mods: Shift, mode: Vi|~Search, action: WordLeft }
-  - { key: W, mods: Shift, mode: Vi|~Search, action: WordRight }
-  - { key: E, mods: Shift, mode: Vi|~Search, action: WordRightEnd }
-  - { key: Key5, mods: Shift, mode: Vi|~Search, action: Bracket }
+  - {
+      key: B,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: WordLeft
+    }
+  - {
+      key: W,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: WordRight
+    }
+  - {
+      key: E,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: WordRightEnd
+    }
+  - {
+      key: Key5,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: Bracket
+    }
   - { key: Slash, mode: Vi|~Search, action: SearchForward }
-  - { key: Slash, mods: Shift, mode: Vi|~Search, action: SearchBackward }
+  - {
+      key: Slash,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: SearchBackward
+    }
   - { key: N, mode: Vi|~Search, action: SearchNext }
-  - { key: N, mods: Shift, mode: Vi|~Search, action: SearchPrevious }
-theme: ShadesOfPurple
+  - {
+      key: N,
+      mods: Shift,
+      mode: Vi|~Search,
+      action: SearchPrevious
+    }
+colors:
+  name: TokyoNight Storm
+  author: Folke
+  # Default colors
+  primary:
+    background: '0x24283b'
+    foreground: '0xc0caf5'
+
+  # Normal colors
+  normal:
+    black: '0x1D202F'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xa9b1d6'
+
+  # Bright colors
+  bright:
+    black: '0x414868'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
